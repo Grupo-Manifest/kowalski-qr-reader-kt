@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainScreenFragment">
+
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="ecb.manifest.kowalski.qr_reader.ui.main.MainScreenFragment"
+        android:label="MainScreenFragment" >
+        <action
+            android:id="@+id/action_mainScreenFragment_to_qrCodeReaderFragment"
+            app:destination="@id/qrCodeReaderFragment" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_numericCodeReaderFragment"
+            app:destination="@id/numericCodeReaderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/qrCodeReaderFragment"
+        android:name="ecb.manifest.kowalski.qr_reader.ui.qrcode_reader.QrCodeReaderFragment"
+        android:label="fragment_numeric_code_reader"
+        tools:layout="@layout/fragment_numeric_code_reader" >
+        <action
+            android:id="@+id/action_qrCodeReaderFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/numericCodeReaderFragment"
+        android:name="ecb.manifest.kowalski.qr_reader.ui.numericcode_reader.NumericCodeReaderFragment"
+        android:label="NumericCodeReaderFragment" >
+        <action
+            android:id="@+id/action_numericCodeReaderFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
+    </fragment>
+</navigation>
