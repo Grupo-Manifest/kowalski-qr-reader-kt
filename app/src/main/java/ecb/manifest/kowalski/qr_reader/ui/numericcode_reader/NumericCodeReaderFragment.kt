@@ -1,4 +1,4 @@
-package ecb.manifest.kowalski.qr_reader.ui.qrcode_reader
+package ecb.manifest.kowalski.qr_reader.ui.numericcode_reader
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import ecb.manifest.kowalski.qr_reader.R
 import ecb.manifest.kowalski.qr_reader.databinding.FragmentNumericCodeReaderBinding
-import ecb.manifest.kowalski.qr_reader.databinding.FragmentQrCodeReaderBinding
 
 class NumericCodeReaderFragment : Fragment() {
     private lateinit var binding: FragmentNumericCodeReaderBinding

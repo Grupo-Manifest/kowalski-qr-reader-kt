@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/numericCodeReaderFragment"
-        android:name="ecb.manifest.kowalski.qr_reader.ui.qrcode_reader.NumericCodeReaderFragment"
+        android:name="ecb.manifest.kowalski.qr_reader.ui.numericcode_reader.NumericCodeReaderFragment"
         android:label="NumericCodeReaderFragment" >
         <action
             android:id="@+id/action_numericCodeReaderFragment_to_mainScreenFragment"
