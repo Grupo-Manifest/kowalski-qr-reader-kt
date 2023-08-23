@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import ecb.manifest.kowalski.qr_reader.R
 import ecb.manifest.kowalski.qr_reader.databinding.FragmentNumericCodeReaderBinding
 import ecb.manifest.kowalski.qr_reader.databinding.FragmentQrCodeReaderBinding
 
@@ -23,6 +25,8 @@ class NumericCodeReaderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.ocrReturnButton.setOnClickListener {  }
+        binding.ocrReturnButton.setOnClickListener {
+            findNavController().navigate(R.id.action_numericCodeReaderFragment_to_mainScreenFragment)
+        }
     }
 }
