@@ -16,16 +16,5 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
-
-        setupClickListeners()
-    }
-
-    private fun setupClickListeners() {
-        setButtonClick(binding.qrCodeButton) { viewModel.onQrCodeButtonClick() }
-        setButtonClick(binding.numericCodeButton) { viewModel.onNumericCodeButtonClick() }
-    }
-
-    private fun setButtonClick(button: Button, clickAction: () -> Unit) {
-        button.setOnClickListener { clickAction.invoke() }
     }
 }
