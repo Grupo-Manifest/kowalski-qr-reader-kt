@@ -5,5 +5,5 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.QrReader" parent="Base.Theme.QrReader" />
+    <style name="Theme.QrReader" parent="Theme.Material3.Light.NoActionBar" />
 </resources>
