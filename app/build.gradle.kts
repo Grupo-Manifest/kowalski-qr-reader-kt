@@ -38,6 +38,15 @@ android {
     }
 }
 
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.10.1")
@@ -64,9 +73,6 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
-    // XCamera ans BarCode
-    implementation("com.google.mlkit:barcode-scanning:17.0.3")
-    implementation("androidx.camera:camera-camera2:1.2.1")
-    implementation("androidx.camera:camera-lifecycle:1.2.1")
-    implementation("androidx.camera:camera-view:1.2.1")
+    // CodeScanner
+    implementation("com.budiyev.android:code-scanner:2.1.0")
 }
