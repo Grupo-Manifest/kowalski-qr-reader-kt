@@ -63,4 +63,10 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    // XCamera ans BarCode
+    implementation("com.google.mlkit:barcode-scanning:17.0.3")
+    implementation("androidx.camera:camera-camera2:1.2.1")
+    implementation("androidx.camera:camera-lifecycle:1.2.1")
+    implementation("androidx.camera:camera-view:1.2.1")
 }
