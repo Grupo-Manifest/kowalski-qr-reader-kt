@@ -1,4 +1,4 @@
-package ecb.manifest.kowalski.qr_reader.ui.qrcode_reader
+package ecb.manifest.kowalski.qr_reader.ui.qrcode_scanner
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -17,10 +17,10 @@ import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
 import ecb.manifest.kowalski.qr_reader.R
-import ecb.manifest.kowalski.qr_reader.databinding.FragmentQrCodeReaderBinding
+import ecb.manifest.kowalski.qr_reader.databinding.FragmentQrCodeScannerBinding
 
-class QrCodeReaderFragment : Fragment() {
-    private lateinit var binding: FragmentQrCodeReaderBinding
+class QrCodeScannerFragment : Fragment() {
+    private lateinit var binding: FragmentQrCodeScannerBinding
 
     private lateinit var codeScanner: CodeScanner
 
@@ -29,7 +29,7 @@ class QrCodeReaderFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentQrCodeReaderBinding.inflate(inflater, container, false)
+        binding = FragmentQrCodeScannerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
