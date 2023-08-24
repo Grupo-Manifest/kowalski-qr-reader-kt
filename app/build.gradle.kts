@@ -38,6 +38,15 @@ android {
     }
 }
 
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.10.1")
@@ -63,4 +72,7 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    // CodeScanner
+    implementation("com.budiyev.android:code-scanner:2.1.0")
 }
