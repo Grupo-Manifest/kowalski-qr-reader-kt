@@ -10,17 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.camera.view.PreviewView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <TextView
-            android:id="@+id/qrScreenLabel"
-            android:layout_width="wrap_content"
+            android:id="@+id/qrScannedData"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="150dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="QR Code Scanning"
-            android:textSize="28sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.33"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/qrReturnButton"
@@ -31,7 +36,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/qrScreenLabel"
-            app:layout_constraintVertical_bias="0.66" />
+            app:layout_constraintTop_toBottomOf="@+id/qrScannedData" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
