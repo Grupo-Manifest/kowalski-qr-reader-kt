@@ -44,8 +44,10 @@ class OCRAnalyzer(
 
     private fun processTextFromImage(visionText: Text, imageProxy: ImageProxy) {
         for (block in visionText.textBlocks) {
-            for (line in block.text) {
-                textFoundListener(line.toString())
+            for (line in block.lines) {
+                for (element in line.elements) {
+                    textFoundListener(element.text)
+                }
             }
         }
     }
