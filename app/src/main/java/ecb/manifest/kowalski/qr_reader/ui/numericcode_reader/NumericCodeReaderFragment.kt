@@ -8,9 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import ecb.manifest.kowalski.qr_reader.R
 import ecb.manifest.kowalski.qr_reader.databinding.FragmentNumericCodeReaderBinding
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class NumericCodeReaderFragment : Fragment() {
     private lateinit var binding: FragmentNumericCodeReaderBinding
+
+    private val cameraExecutor: ExecutorService by lazy {
+        Executors.newSingleThreadExecutor()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,5 +33,10 @@ class NumericCodeReaderFragment : Fragment() {
         binding.ocrReturnButton.setOnClickListener {
             findNavController().navigate(R.id.action_numericCodeReaderFragment_to_mainScreenFragment)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        cameraExecutor.shutdown()
     }
 }
