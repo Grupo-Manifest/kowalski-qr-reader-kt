@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.camera.core.AspectRatio
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
+import androidx.camera.core.ImageAnalysis.Analyzer
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
@@ -31,6 +32,18 @@ class NumericCodeReaderFragment : Fragment() {
 
     private val cameraExecutor: ExecutorService by lazy {
         Executors.newSingleThreadExecutor()
+    }
+
+    private val imageAnalyzer by lazy {
+        ImageAnalysis.Builder()
+            .setTargetAspectRatio(AspectRatio.RATIO_16_9)
+            .build()
+            .also {
+                it.setAnalyzer(
+                    cameraExecutor,
+                    OCRAnalyzer(viewModel::onTextFound)
+                )
+            }
     }
 
     override fun onCreateView(
@@ -71,7 +84,7 @@ class NumericCodeReaderFragment : Fragment() {
                     .also {
                         it.setSurfaceProvider(binding.ocrCameraPreview.surfaceProvider)
                     }
-                cameraProvider.get().bind(preview)
+                cameraProvider.get().bind(preview, imageAnalyzer)
             },
             ContextCompat.getMainExecutor(requireContext())
         )
@@ -92,12 +105,14 @@ class NumericCodeReaderFragment : Fragment() {
 
     private fun ProcessCameraProvider.bind(
         preview: Preview,
+        imageAnalyzer: ImageAnalysis
     ) = try {
         unbindAll()
         bindToLifecycle(
             requireActivity(),
             CameraSelector.DEFAULT_BACK_CAMERA,
             preview,
+            imageAnalyzer,
         )
     } catch (e: IllegalStateException) {
         Log.e(TAG, "Binding failed", e)
