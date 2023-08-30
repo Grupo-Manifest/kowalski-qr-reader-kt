@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.camera.core.AspectRatio
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.ImageAnalysis.Analyzer
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
@@ -21,7 +20,6 @@ import androidx.navigation.fragment.findNavController
 import ecb.manifest.kowalski.qr_reader.R
 import ecb.manifest.kowalski.qr_reader.data.ocr.OCRAnalyzer
 import ecb.manifest.kowalski.qr_reader.databinding.FragmentNumericCodeReaderBinding
-import ecb.manifest.kowalski.qr_reader.ui.main.MainActivityViewModel
 import java.lang.IllegalStateException
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
