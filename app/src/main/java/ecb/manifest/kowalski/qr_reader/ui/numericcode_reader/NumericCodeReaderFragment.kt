@@ -16,7 +16,7 @@ class NumericCodeReaderFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentNumericCodeReaderBinding.inflate(inflater, container, false)
         return binding.root
     }
