@@ -7,21 +7,27 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.camera.core.AspectRatio
 import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ecb.manifest.kowalski.qr_reader.R
+import ecb.manifest.kowalski.qr_reader.data.ocr.OCRAnalyzer
 import ecb.manifest.kowalski.qr_reader.databinding.FragmentNumericCodeReaderBinding
+import ecb.manifest.kowalski.qr_reader.ui.main.MainActivityViewModel
 import java.lang.IllegalStateException
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 class NumericCodeReaderFragment : Fragment() {
     private lateinit var binding: FragmentNumericCodeReaderBinding
+    lateinit var viewModel: OCRViewModel
 
     private val cameraExecutor: ExecutorService by lazy {
         Executors.newSingleThreadExecutor()
@@ -33,6 +39,7 @@ class NumericCodeReaderFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentNumericCodeReaderBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[OCRViewModel::class.java]
         return binding.root
     }
 
