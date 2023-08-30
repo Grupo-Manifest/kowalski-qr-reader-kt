@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.camera.core.AspectRatio
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
@@ -39,7 +40,7 @@ class NumericCodeReaderFragment : Fragment() {
             .also {
                 it.setAnalyzer(
                     cameraExecutor,
-                    OCRAnalyzer(viewModel::onTextFound)
+                    OCRAnalyzer(::onTextFound)
                 )
             }
     }
@@ -76,7 +77,7 @@ class NumericCodeReaderFragment : Fragment() {
     private fun startCamera() {
         val cameraProvider = ProcessCameraProvider.getInstance(requireContext())
         cameraProvider.addListener(
-            Runnable {
+            {
                 val preview = Preview.Builder()
                     .build()
                     .also {
@@ -86,6 +87,14 @@ class NumericCodeReaderFragment : Fragment() {
             },
             ContextCompat.getMainExecutor(requireContext())
         )
+    }
+
+    private fun onTextFound(text: String) {
+        val resultMessage = viewModel.onTextFound(text)
+        if (resultMessage != null) {
+            Toast.makeText(requireContext(), resultMessage, Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
