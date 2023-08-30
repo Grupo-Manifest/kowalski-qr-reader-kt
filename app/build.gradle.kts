@@ -75,4 +75,8 @@ dependencies {
 
     // CodeScanner
     implementation("com.budiyev.android:code-scanner:2.1.0")
+
+    // Google's ML Kit
+    // To recognize Latin script
+    implementation("com.google.mlkit:text-recognition:16.0.0")
 }
